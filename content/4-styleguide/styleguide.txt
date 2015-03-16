@@ -1,0 +1,441 @@
+Title: Styleguide
+----
+Text:
+### Contents {#contents}
+1. [Sections](#sections)
+2. [Grouping Content](#grouping-content)
+	1. [Paragraphs](#paragraphs)
+	2. [Horizontal Rule](#horizontal-rule)
+	3. [Pre-formatted Text](#pre-formatted)
+	4. [Blockquotes](#blockquotes)
+	5. [Ordered list](#ordered-list)
+	6. [Unordered list](#unordered-list)
+	7. [Definition list](#definition-list)
+	8. [Figures](#figures)
+3. [Text-level Semantics](#text-level-semantics)
+	1. [Links and anchors](#links-and-anchors)
+	2. [Stressed emphasis](#stressed-emphasis)
+	3. [Strong importance](#strong-importance)
+	4. [Small print](#small-print)
+	5. [Strikethrough](#strikethrough)
+	6. [Citations](#citations)
+	7. [Inine quotes](#inline-quotes)
+	8. [Definition](#definition)
+	9. [Abbreviation](#abbreviation)
+	10. [Time](#time)
+	11. [Code](#code)
+	12. [Keyboard entry](#keyboard-entry)
+	13. [Superscript and Subscript text](#sup-sub)
+	14. [Italicised](#italicised)
+	15. [Emboldened](#emboldened)
+	16. [Marked or highlighted text](#marked-text)
+	17. [Edits](#edits)
+4. [Forms](#forms)
+
+****
+
+### Sections {#sections}
+Headings can be used mid content, and as many times as needed - with one exception which is the `h1` which can only be used once in a document. Any header elements may include links. There are also coresponding classes for setting type in the same style. These are named after the letters of the Greek Alphabet:
+
+<pre rel="SCSS"><code>
+	h1, .alpha      { font-size: $alpha-size; }
+  h2, .beta       { font-size: $beta-size; }
+  h3, .gamma      { font-size: $gamma-size; }
+  h4, .delta      { font-size: $delta-size; }
+  h5, .epsilon    { font-size: $epsilon-size; }
+  h6, .milli      { font-size: $milli-size; }
+</code></pre>
+
+# First-Level Header
+The header above is a `h1` element, which may be used for only the main heading a document hierarchy.
+
+## Second-Level Header
+The header above is a `h2` element, which may be used for any form of page-level header which falls below the `h1` header in a document hierarchy.
+
+### Third-Level Header
+The header above is a `h3` element, which may be used for any form of page-level header which falls below the `h2` header in a document hierarchy.
+
+#### Fourth-Level Header
+The header above is a `h4` element, which may be used for any form of page-level header which falls below the `h3` header in a document hierarchy.
+
+##### Fifth-Level Header
+The header above is a `h5` element, which may be used for any form of page-level header which falls below the `h4` header in a document hierarchy.
+
+###### Sixth-Level Header
+The header above is a `h6` element, which may be used for any form of page-level header which falls below the `h5` header in a document hierarchy.
+
+<p class="align-right"><a href="#contents">Back to contents</a></p>
+
+****
+
+### Grouping Content {#grouping-content}
+#### Paragraphs {#paragraphs}
+All paragraphs are wrapped in `p` tags. Additionally, `p` elements can be wrapped with a `blockquote` element *if the `p` element is indeed a quote*. Historically, `blockquote` has been used purely to force indents, but this is now achieved using CSS. Reserve `blockquote` for quotes.
+
+<p class="align-right"><a href="#contents">Back to contents</a></p>
+
+#### Horizontal rule {#horizontal-rule}
+The `hr` element represents a paragraph-level thematic break, e.g. a scene change in a story, or a transition to another topic within a section of a reference book - just like the one above this section. Default `hr`s will appear as a solid line, but if you add the `.hr--stars` class, they will appear as three asterisks like above.
+
+Default `hr`:
+
+<hr>
+
+Small `hr`:
+
+<hr class="hr--small">
+
+<p class="align-right"><a href="#contents">Back to contents</a></p>
+
+#### Pre-formatted text {#pre-formatted}
+The `pre` element represents a block of pre-formatted text, in which structure is represented by typographic conventions rather than by elements. Such an example is fragments of computer code (with structure indicated according to the conventions of that language). Here’s an example showing the bash script used to publish this page:
+
+<pre rel="bash"><code>
+	$ git status -s
+	$ git add content/styleguide/
+	$ git commit -am "Created a Styleguide for samking.co"
+	$ git push live master
+</code></pre>
+
+<p class="align-right">
+	<a href="#contents">Back to contents</a>
+</p>
+
+#### Blockquotes {#blockquotes}
+The `blockquote` element represents a section that is being quoted from another source. Additionally, you might wish to cite the source, as in the example below. The correct method involves including the cite attribute on the blockquote element, but since no browser makes any use of that information, it’s useful to link to the source also.
+
+> Many forms of Government have been tried, and will be tried in this world of sin and woe. No one pretends that democracy is perfect or all-wise. Indeed, it has been said that democracy is the worst form of government except all those other forms that have been tried from time to time.
+
+> <span class="quote-citation">Winston Churchill, <cite>[in a speech to the House of Commons](http://hansard.millbanksystems.com/commons/1947/nov/11/parliament-bill#column_206)</cite>, 11th November 1947</span>
+
+<p class="align-right">
+	<a href="#contents">Back to contents</a>
+</p>
+
+#### Ordered list {#ordered-list}
+The `ol` element denotes an ordered list, and various numbering schemes are available through CSS (including 1,2,3… a,b,c… i,ii,iii… and so on). Each item requires a surrounding `<li>` and `</li>` tag, to denote individual items within the list (as you may have guessed, `li` stands for list item). These can also be formatted in Markdown by putting a number and full-stop followed by the list item content - for example `1. This is a list item`.
+
+1. This is an ordered list.
+2. This is the second item, which contains a sub list
+	1. This is the sub list, which is also ordered.
+	2. It has two items.
+	3. This is the final item on this list.
+
+<p class="align-right">
+	<a href="#contents">Back to contents</a>
+</p>
+
+#### Unordered list {#unordered-list}
+The `ul` element denotes an unordered list (ie. a list of loose items that don’t require numbering, or a bulleted list). Again, each item requires a surrounding `<li>` and `</li>` tag, to denote individual items. These can be written in Markdown by using an asterisk before the item - for example `* This is an unordered list item`. Here is an example list showing the constituent parts of the British Isles:
+
+* United Kingdom of Great Britain and Northern Ireland:
+	* England
+	* Scotland
+	* Wales
+	* Northern Ireland
+* Republic of Ireland
+* Isle of Man
+* Channel Islands:
+	* Bailiwick of Guernsey
+	* Bailiwick of Jersey
+
+Sometimes we may want each list item to contain block elements, typically a paragraph or two.
+
+* The British Isles is an archipelago consisting of the two large islands of Great Britain and Ireland, and many smaller surrounding islands.
+* Great Britain is the largest island of the archipelago. Ireland is the second largest island of the archipelago and lies directly to the west of Great Britain.
+* The full list of islands in the British Isles includes over 1,000 islands, of which 51 have an area larger than 20 km2.
+
+There are also `.list--no-bullet` and `.list--dash` classes which produce a `ul` with no bullets, and an `&ndash` before each `li` respectively.
+
+<p class="align-right">
+	<a href="#contents">Back to contents</a>
+</p>
+
+#### Definition list {#definition-list}
+The `dl` element is for another type of list called a definition list. Instead of list items, the content of a `dl` consists of `dt` (Definition Term) and `dd` (Definition description) pairs. Though it may be called a "definition list", `dl` can apply to other scenarios where a parent/child relationship is applicable. For example, it may be used for marking up dialogues, with each `dt` naming a speaker, and each `dd` containing his or her words.
+
+<dl>
+	<dt>This is a term.</dt>
+	<dd>This is the definition of that term, which both live in a 	<code>dl</code>.</dd>
+	<dt>Here is another term.</dt>
+	<dd>And it gets a definition too, which is this line.</dd>
+	<dt>Here is term that shares a definition with the term below.</dt>
+	<dt>Here is a defined term.</dt>
+	<dd><code>dt</code> terms may stand on their own without an accompanying <code>dd</code>, but in that case they share descriptions with the next available <code>dt</code>. You may not have a <code>dd</code> without a parent <code>dt</code>.</dd>
+</dl>
+
+<p class="align-right">
+	<a href="#contents">Back to contents</a>
+</p>
+
+#### Figures {#figures}
+Figures are usually used to refer to images, however they can also be used for video and other elements. In most cases, the images will be full bleed to the edge of the article, however this will probably be changing soon.
+
+<figure class="media">
+	<img src="{{ path }}/figure-example.jpg" alt="Figure example image" class="media__image">
+<figcaption>
+	<p>This is a placeholder image, with supporting caption.</p>
+</figure>
+
+<figure class="js--fitvid">
+	<iframe src="http://player.vimeo.com/video/59380598?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="792" height="445" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+<figcaption>
+<p><cite><a href="http://vimeo.com/59380598" target="_blank">Waiting out winter</a></cite> from Andrew David Watson</p>
+</figcaption>
+</figure>
+
+<p class="align-right">
+	<a href="#contents">Back to contents</a>
+</p>
+
+****
+
+### Text-level Semantics {#text-level-semantics}
+There are a number of inline HTML elements you may use anywhere within other elements on the page.
+
+#### Links and anchors {#links-and-anchors}
+The `a` element is used to hyperlink text, be that to another page, a named fragment on the current page or any other location on the web. Example:
+
+[Go to the homepage](/), [check out my my projects](/projects) or [read my journal](/journal)
+
+<p class="align-right"><a href="#contents">Back to contents</a></p>
+
+#### Stressed emphasis {#stressed-emphasis}
+The `em` element is used to denote text with stressed emphasis, i.e., something you’d pronounce differently. Where italicizing is required for stylistic differentiation, the `i` element may be preferable. Example:
+
+You simply *must* try the Yaki Soba!
+
+<p class="align-right">
+	<a href="#contents">Back to contents</a>
+</p>
+
+#### Strong importance {#strong-importance}
+The `strong` element is used to denote text with strong importance. Where bolding is used for stylistic differentiation, the `b` element may be preferable. Example:
+
+**Don’t** stick a fork in the toaster.
+
+<p class="align-right">
+	<a href="#contents">Back to contents</a>
+</p>
+
+#### Small print {#small-print}
+The `small` element is used to represent disclaimers, caveats, legal restrictions, or copyrights (commonly referred to as ‘small print’). It can also be used for attributions or satisfying licensing requirements. Example:
+
+<small>Copyright &copy; 1922-2011 Acme Corporation. All Rights Reserved.</small>
+
+<p class="align-right">
+	<a href="#contents">Back to contents</a>
+</p>
+
+#### Strikethrough {#strikethrough}
+The `s` element is used to represent content that is no longer accurate or relevant. When indicating document edits i.e., marking a span of text as having been removed from a document, use the `del` element instead. Example:
+
+<s>Recommended retail price: £3.99 per bottle</s><br>
+<strong>Now selling for just £2.99 a bottle!</strong>
+
+<p class="align-right">
+	<a href="#contents">Back to contents</a>
+</p>
+
+#### Citations {#citations}
+The `cite` element is used to represent the title of a work (e.g. a book, essay, poem, song, film, TV show, sculpture, painting, musical, exhibition, etc). This can be a work that is being quoted or referenced in detail (i.e. a citation), or it can just be a work that is mentioned in passing. Example:
+
+<cite>Universal Declaration of Human Rights</cite>, United Nations, December 1948. Adopted by General Assembly resolution 217 A (III).
+
+<p class="align-right">
+	<a href="#contents">Back to contents</a>
+</p>
+
+#### Inline quotes {#inline-quotes}
+The `q` element is used for quoting text inline. Example showing nested quotations:
+
+John said, <q>I saw Lucy at lunch, she told me <q>Mary wants you to get some ice cream on your way home.</q> I think I will get some at Ben and Jerry’s, on Gloucester Road.</q>
+
+<p class="align-right">
+	<a href="#contents">Back to contents</a>
+</p>
+
+#### Definition {#definition}
+The `dfn` element is used to highlight the first use of a term. The `title` attribute can be used to describe the term. Example:
+
+Bob’s <dfn title="Dog">canine</dfn> mother and <dfn title="Horse">equine</dfn> father sat him down and carefully explained that he was an <dfn title="A mutation that combines two or more sets of chromosomes from different species">allopolyploid</dfn> organism.
+
+<p class="align-right">
+	<a href="#contents">Back to contents</a>
+</p>
+
+#### Abbreviation {#abbreviation}
+The `abbr` element is used for any abbreviated text, whether it be acronym, initialism, or otherwise. Generally, it’s less work and useful (enough) to mark up only the first occurrence of any particular abbreviation on a page, and ignore the rest. Any text in the `title` attribute will appear when the user’s mouse hovers the abbreviation (although notably, this does not work in Internet Explorer for Windows). Example abbreviations:
+
+<abbr title="British Broadcasting Corporation">BBC</abbr>, <abbr title="HyperText Markup Language">HTML</abbr>, and <abbr title="Bicycle Motorcross">BMX</abbr>.
+
+<p class="align-right">
+	<a href="#contents">Back to contents</a>
+</p>
+
+#### Time {#time}
+The `time` element is used to represent either a time on a 24 hour clock, or a precise date in the proleptic Gregorian calendar, optionally with a time and a time-zone offset. Example:
+
+Queen Elizabeth II was proclaimed sovereign of each of the Commonwealth realms on <time datetime="1952-02-6">6</time> and <time datetime="1952-02-7">7 February 1952</time>, after the death of her father, King George VI.
+
+<p class="align-right">
+	<a href="#contents">Back to contents</a>
+</p>
+
+#### Code {#code}
+The `code` element is used to represent fragments of computer code. Useful for technology-oriented sites, not so useful otherwise. Example:
+
+When you call the `activate()` method on the `robotSnowman` object, the eyes glow.
+
+Used in conjunction with the pre element:
+
+<pre rel="PHP"><code>&lt;?php
+	echo "Hello World!";
+?></code></pre>
+
+<p class="align-right">
+	<a href="#contents">Back to contents</a>
+</p>
+
+#### Keyboard entry {#keyboard-entry}
+The `kbd` element is used to denote user input (typically via a keyboard, although it may also be used to represent other input methods, such as voice commands). Example:
+
+To take a screenshot on your Mac, press <kbd>⌘ Cmd</kbd> + <kbd>⇧ Shift</kbd> + <kbd>3</kbd>.
+
+<p class="align-right">
+	<a href="#contents">Back to contents</a>
+</p>
+
+#### Superscript and subscript text {#sup-sub}
+The `sup` element represents a superscript and the `sub` element represents a subscript. These elements must be used only to mark up typographical conventions with specific meanings, not for typographical presentation. As a guide, only use these elements if their absence would change the meaning of the content. Example:
+
+The coordinate of the <var>i</var>th point is (<var>x<sub><var>i</var></sub></var>, <var>y<sub><var>i</var></sub></var>). For example, the 10th point has coordinate (<var>x<sub><var>10</var></sub></var>, <var>y<sub><var>10</var></sub></var>).<br>
+f(<var>x</var>, <var>n</var>) = log<sub>4</sub><var>x</var><sup><var>n</var></sup>
+
+<p class="align-right">
+	<a href="#contents">Back to contents</a>
+</p>
+
+#### Italicised {#italicised}
+The `i` element is used for text in an alternate voice or mood, or otherwise offset from the normal prose. Examples include taxonomic designations, technical terms, idiomatic phrases from another language, the name of a ship or other spans of text whose typographic presentation is typically italicised. Example:
+
+There is a certain <i>je ne sais quoi</i> in the air.
+
+<p class="align-right">
+	<a href="#contents">Back to contents</a>
+</p>
+
+#### Emboldened {#emboldened}
+The `b` element is used for text stylistically offset from normal prose without conveying extra importance, such as key words in a document abstract, product names in a review, or other spans of text whose typographic presentation is typically emboldened. Example:
+
+You enter a small room. Your <b>sword</b> glows brighter. A <b>rat</b> scurries past the corner wall.
+
+<p class="align-right">
+	<a href="#contents">Back to contents</a>
+</p>
+
+#### Marked or highlighted text {#marked-text}
+The `mark` element is used to represent a run of text marked or highlighted for reference purposes. When used in a quotation it indicates a highlight not originally present but added to bring the reader’s attention to that part of the text. When used in the main prose of a document, it indicates a part of the document that has been highlighted due to its relevance to the user’s current activity. Example:
+
+I also have some <mark>kitten</mark>s who are visiting me these days. They’re really cute. I think they like my garden! Maybe I should adopt a <mark>kitten</mark>.
+
+<p class="align-right">
+	<a href="#contents">Back to contents</a>
+</p>
+
+#### Edits {#edits}
+The `del` element is used to represent deleted or retracted text which still must remain on the page for some reason. Meanwhile its counterpart, the `ins` element, is used to represent inserted text. Both `del` and `ins` have a `datetime` attribute which allows you to include a timestamp directly in the element. Example inserted text and usage:
+
+She bought <del>two</del> <ins>five</ins> pairs of shoes.
+
+<p class="align-right">
+	<a href="#contents">Back to contents</a>
+</p>
+
+****
+
+### Forms {#forms}
+Forms can be used when you wish to collect data from users. The `fieldset` element enables you to group related fields within a `form`, and each one should contain a corresponding `legend`. The `label` element ensures field descriptions are associated with their corresponding form elements.
+
+<form action="#" class="form">
+	<fieldset>
+		<ul class="list--no-bullet">
+			<li>
+			<label for="name">Name <abbr title="required">*</abbr></label>
+			<input id="name" type="text">
+			</li>
+			<li>
+				<label for="password">Password</label>
+				<input id="password" type="password">
+			</li>
+			<li>
+				<label for="email">Email</label>
+				<input id="email" type="email">
+			</li>
+			<li>
+				<label for="textarea">Textarea</label>
+				<textarea id="textarea" rows="5"></textarea>
+			</li>
+			<li class="form__checkbox">
+				<input type="checkbox" id="checkbox">
+				<label for="checkbox">Single checkbox</label>
+			</li>
+			<li>
+				<label for="date">Select</label>
+					<div class="styled-select">
+						<select id="date" name="date">
+							<option value="">Select One</option>
+							<option value="Option 1">Option 1</option>
+							<option value="Option 2">Option 2</option>
+							<option value="Option 3">Option 3</option>
+						</select>
+					</div>
+			</li>
+			<li class="form__options">
+				<label>Checkbox</label>
+					<ul class="list--no-bullet">
+						<li>
+							<input type="checkbox" id="checkbox-1" checked="checked">
+							<label for="checkbox-1">Choice A</label>
+			</li>
+			<li>
+				<input type="checkbox" id="checkbox-2">
+				<label for="checkbox-2">Choice B</label>
+			</li>
+			<li>
+				<input type="checkbox" id="checkbox-3">
+				<label for="checkbox-3">Choice C</label>
+			</li>
+	</ul>
+          </li>
+          <li class="form__options">
+              <label>Radio</label>
+              <ul class="list--no-bullet">
+                  <li>
+                      <input type="radio" id="radio-1" name="radio" checked="checked">
+                      <label for="radio-1">Option 1</label>
+                  </li>
+                  <li>
+                      <input type="radio" id="radio-2" name="radio">
+                      <label for="radio-2">Option 2</label>
+                  </li>
+              </ul>
+          </li>
+          <li class="form__submit">
+              <input type="submit" id="submit" class="submit  button--dark" value="Submit"></input>
+              <input type="submit" id="submit" class="submit  button--light" value="Preview"></input>
+              <input type="submit" id="submit" class="submit  button--white" value="Cancel"></input>
+          </li>
+      </ul>
+      </fieldset>
+  </form>
+
+  <p class="align-right"><a href="#contents">Back to contents</a></p>
+
+
+
+
+
+
+
+
